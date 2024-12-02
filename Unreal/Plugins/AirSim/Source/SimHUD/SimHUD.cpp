@@ -69,6 +69,24 @@ void ASimHUD::EndPlay(const EEndPlayReason::Type EndPlayReason)
     Super::EndPlay(EndPlayReason);
 }
 
+USimHUDWidget* ASimHUD::GetAirSimWidget()
+{
+
+    return widget_;
+
+}
+
+void ASimHUD::ToggleAllWindows(bool if_Show_Or_Hide)
+{
+
+    getSubWindowSettings().at(0).visible = if_Show_Or_Hide;
+    getSubWindowSettings().at(1).visible = if_Show_Or_Hide;
+    getSubWindowSettings().at(2).visible = if_Show_Or_Hide;
+
+    updateWidgetSubwindowVisibility();
+
+}
+
 void ASimHUD::toggleRecordHandler()
 {
     simmode_->toggleRecording();

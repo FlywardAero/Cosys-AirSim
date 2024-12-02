@@ -39,6 +39,12 @@ public:
     virtual void EndPlay(const EEndPlayReason::Type EndPlayReason) override;
     virtual void Tick(float DeltaSeconds) override;
 
+    UFUNCTION(BlueprintPure, Category = "SimHUD")
+        USimHUDWidget* GetAirSimWidget();
+
+    UFUNCTION(BlueprintCallable, Category = "SimHUD")
+        void ToggleAllWindows(bool if_Show_Or_Hide);
+
 protected:
     virtual void setupInputBindings();
     void toggleRecordHandler();
