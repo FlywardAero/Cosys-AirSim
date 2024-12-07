@@ -86,6 +86,13 @@ public:
     USceneCaptureComponent2D* getCaptureComponent(const ImageType type, bool if_active, std::string annotation_name = "");
     UTextureRenderTarget2D* getRenderTarget(const ImageType type, bool if_active, std::string annotation_name = "");
     UDetectionComponent* getDetectionComponent(const ImageType type, bool if_active, std::string annotation_name = "") const;
+    UFUNCTION(BlueprintCallable, Category = "Render")
+    UTextureRenderTarget2D *getRenderTarget(const int type, bool if_active)
+    {
+        if (!if_active || camera_type_enabled_[type])
+            return render_targets_[type];
+        return nullptr;
+    }
 
     msr::airlib::Pose getPose() const;
 
